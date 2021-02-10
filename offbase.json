@@ -2,6 +2,6 @@
   "name": "quickstart",
   "routes": [{
     "from": "/",
-    "to": "/home/index.html"
+    "to": "/bin/index.html"
   }]
 }
