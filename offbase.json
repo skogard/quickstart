@@ -1,0 +1,7 @@
+{
+  "name": "quickstart",
+  "routes": [{
+    "from": "/",
+    "to": "/index.html"
+  }]
+}
