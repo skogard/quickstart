@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+</style>
+</head>
+<body>
+<textarea id='editor' placeholder='type something...' autofocus></textarea>
+<script src="https://unpkg.com/lodash"></script>
+<script type='module'>
+import { fs } from '/offbase.js';
+fs.promises.readFile("/note.txt", "utf8").then((text) => {
+  document.querySelector("#editor").value = text
+})
+document.querySelector("#editor").addEventListener("input", _.debounce((e) => {
+  fs.promises.writeFile("/note.txt", e.target.value, "utf8").then((res) => {
+    console.log("saved.")
+  })
+}, 500))
+</script>
+</body>
+</html>
