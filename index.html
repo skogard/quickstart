@@ -22,11 +22,11 @@ a {
 <script src="https://unpkg.com/lodash"></script>
 <script type='module'>
 import { fs } from '/offbase.js';
-fs.promises.readFile("/note.txt", "utf8").then((text) => {
+fs.promises.readFile("/home/note.txt", "utf8").then((text) => {
   document.querySelector("#editor").value = text
 })
 document.querySelector("#editor").addEventListener("input", _.debounce((e) => {
-  fs.promises.writeFile("/note.txt", e.target.value, "utf8").then((res) => {
+  fs.promises.writeFile("/home/note.txt", e.target.value, "utf8").then((res) => {
     console.log("saved.")
   })
 }, 500))
